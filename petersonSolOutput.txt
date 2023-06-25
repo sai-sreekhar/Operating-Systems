@@ -1,0 +1,108 @@
+Producer is ready now.
+
+The product 3 has been produced and is ready to be consumed
+Products: 3 0 0 0 0 0 0 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 5 has been produced and is ready to be consumed
+Products: 3 5 0 0 0 0 0 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 13 has been produced and is ready to be consumed
+Products: 3 5 13 0 0 0 0 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 16 has been produced and is ready to be consumed
+Products: 3 5 13 16 0 0 0 0 
+Producer will wait for 2 seconds
+
+Consumer can consume products.
+
+Job 3 has been consumed
+Buffer: 5 13 16 0 0 0 0 0 
+Consumer will need to wait for 9 seconds to get products to be consumed.
+
+Producer is ready now.
+
+The product 3 has been produced and is ready to be consumed
+Products: 5 13 16 3 0 0 0 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 23 has been produced and is ready to be consumed
+Products: 5 13 16 3 23 0 0 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 12 has been produced and is ready to be consumed
+Products: 5 13 16 3 23 12 0 0 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 17 has been produced and is ready to be consumed
+Products: 5 13 16 3 23 12 17 0 
+Producer will wait for 1 seconds
+
+Producer is ready now.
+
+The product 2 has been produced and is ready to be consumed
+Products: 5 13 16 3 23 12 17 2 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The producer has produced the products to maximum capacity
+Products: 5 13 16 3 23 12 17 2 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 4 has been produced and is ready to be consumed
+Products: 4 0 0 0 0 0 0 0 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 22 has been produced and is ready to be consumed
+Products: 4 22 0 0 0 0 0 0 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 18 has been produced and is ready to be consumed
+Products: 18 0 0 0 0 0 0 0 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 22 has been produced and is ready to be consumed
+Products: 18 22 0 0 0 0 0 0 
+Producer will wait for 2 seconds
+
+Producer is ready now.
+
+The product 15 has been produced and is ready to be consumed
+Products: 18 22 15 0 0 0 0 0 
+Producer will wait for 1 seconds
+
+Consumer can consume products.
+
+Job 18 has been consumed
+Buffer: 22 15 0 0 0 0 0 0 
+Consumer will need to wait for 6 seconds to get products to be consumed.
+
+Producer is ready now.
+
+The product 21 has been produced and is ready to be consumed
+Products: 22 15 21 0 0 0 0 0 
+Producer will wait for 1 seconds
+
