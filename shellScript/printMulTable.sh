@@ -4,7 +4,8 @@ read number
 echo "Multiplication Table for $number"
 
 # Print the table body
-for i in {1..10}; do
-  echo "$number * $i = $((number * i))"
+for i in {1..10}
+do
+  echo "$number * $i = `expr $number \* $i`"
 done
 

@@ -29,20 +29,19 @@ int main()
     cin >> timeQuantum;
 
     queue<pair<int, int>> readyQueue;
-    vector<bool> isCompleted(n, false);
-    // queue<pair<int, int>> runningQueue;
+    vector<bool> isInQueue(n, false);
     int currTime = 0;
-    int minArrivalTimeIdx = INT_MAX;
+    int minArrivalTimeIdx = 0;
     for (int i = 0; i < n; i++)
     {
-        if (processArr[i].arrivalTime < minArrivalTimeIdx)
+        if (processArr[i].arrivalTime < processArr[minArrivalTimeIdx].arrivalTime)
         {
             minArrivalTimeIdx = i;
         }
     }
     currTime = processArr[minArrivalTimeIdx].arrivalTime;
     readyQueue.push({processArr[minArrivalTimeIdx].burstTime, minArrivalTimeIdx});
-    isCompleted[minArrivalTimeIdx] = true;
+    isInQueue[minArrivalTimeIdx] = true;
 
     while (readyQueue.size() != 0)
     {
@@ -55,11 +54,11 @@ int main()
 
             for (int i = 0; i < n; i++)
             {
-                if (processArr[i].arrivalTime <= currTime && !isCompleted[i])
+                if (processArr[i].arrivalTime <= currTime && !isInQueue[i])
                 {
                     cout << "Pushing process " << i << " to ready queue\n";
                     readyQueue.push({processArr[i].burstTime, i});
-                    isCompleted[i] = true;
+                    isInQueue[i] = true;
                 }
             }
             cout << "Pushing process " << curr.second << " back to ready queue\n";
@@ -71,10 +70,10 @@ int main()
             curr.first = 0;
             for (int i = 0; i < n; i++)
             {
-                if (processArr[i].arrivalTime <= currTime && !isCompleted[i])
+                if (processArr[i].arrivalTime <= currTime && !isInQueue[i])
                 {
                     readyQueue.push({processArr[i].burstTime, i});
-                    isCompleted[i] = true;
+                    isInQueue[i] = true;
                 }
             }
             processArr[curr.second].completionTime = currTime;

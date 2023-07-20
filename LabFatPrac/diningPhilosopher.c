@@ -6,7 +6,7 @@
 #define num_philopsophers 5
 #define num_chopsticks 5
 
-void dine(int n);
+void dine(void* n);
 pthread_t philosopher[num_philopsophers];
 pthread_mutex_t chopstick[num_chopsticks];
 
@@ -32,7 +32,7 @@ int main()
     // Run the philosopher Threads using *dine() function
     for (int i = 1; i <= num_philopsophers; i++)
     {
-        status_message = pthread_create(&philosopher[i], NULL, (void *)dine, (int *)i);
+        status_message = pthread_create(&philosopher[i], NULL, (void *)dine, (void *)i);
         if (status_message != 0)
         {
             printf("\n Thread creation error \n");
@@ -66,27 +66,28 @@ int main()
 }
 
 // dine method
-void dine(int n)
+void dine(void* n)
 {
-    printf("\nPhilosopher % d is thinking ", n);
+    int a = (int *)n;
+    printf("\nPhilosopher % d is thinking ", a);
     
     // picking up the left chopstick (wait)
-    pthread_mutex_lock(&chopstick[n]);
+    pthread_mutex_lock(&chopstick[a]);
     
     // picking up the right chopstick (wait)
-    pthread_mutex_lock(&chopstick[(n + 1) % num_chopsticks]);
+    pthread_mutex_lock(&chopstick[(a + 1) % num_chopsticks]);
     
     // both chopstick picked now starts eating
     
-    printf("\nPhilosopher % d is eating ", n);
+    printf("\nPhilosopher % d is eating ", a);
     sleep(3);
     
     // places the left chopstick down (signal)
-    pthread_mutex_unlock(&chopstick[n]);
+    pthread_mutex_unlock(&chopstick[a]);
     
     // places the  the right chopstick down (signal)
-    pthread_mutex_unlock(&chopstick[(n + 1) % num_chopsticks]);
+    pthread_mutex_unlock(&chopstick[(a + 1) % num_chopsticks]);
     
     //  eating finishes
-    printf("\nPhilosopher % d Finished eating ", n);
+    printf("\nPhilosopher % d Finished eating ", a);
 }

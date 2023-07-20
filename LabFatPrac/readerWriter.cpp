@@ -141,15 +141,13 @@ void* writer(void* id)
 int main()
 {
 	pthread_t r[5], w[5];
-	int id[5];
 	for (int i = 0; i < 5; i++) {
-		id[i] = i;
 
 		// creating threads which execute reader function
-		pthread_create(&r[i], NULL, &reader, &id[i]);
+		pthread_create(&r[i], NULL, &reader, (void*)&i);
 
 		// creating threads which execute writer function
-		pthread_create(&w[i], NULL, &writer, &id[i]);
+		pthread_create(&w[i], NULL, &writer, (void*)&i);
 	}
 
 	for (int i = 0; i < 5; i++) {
